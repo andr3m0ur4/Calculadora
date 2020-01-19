@@ -13,13 +13,30 @@ function calcular (tipo, valor) {
             case '*':
             case '/':
             case '.':
-                document.getElementById('resultado').value += valor
+                var resultado = document.getElementById('resultado').value
+
+                if (resultado.endsWith('-') || resultado.endsWith('+') || resultado.endsWith('*') || resultado.endsWith('/') || resultado.endsWith('.')) {
+                    var tamanho = resultado.length
+                    var operacao = resultado.charAt(tamanho - 1)
+                    resultado = resultado.replace(operacao, valor)
+                    document.getElementById('resultado').value = resultado
+                } else if (resultado === '') {
+                    if (valor === '+' || valor === '-') {
+                        document.getElementById('resultado').value += valor
+                    }
+                } else {
+                    document.getElementById('resultado').value += valor
+                }
+
                 break
 
             case '=':
-                var valor_campo = eval(document.getElementById('resultado').value)
+                if (document.getElementById('resultado').value != '') {
+                    var valor_campo = eval(document.getElementById('resultado').value)
                 
-                document.getElementById('resultado').value = valor_campo
+                    document.getElementById('resultado').value = valor_campo
+                }
+
                 break
         }
     } else if (tipo === 'valor') {
