@@ -1,8 +1,10 @@
 # Calculadora
-Aplicação para realizar os cálculos de uma calculadora utilizando a linguagem de programação JavaScript puro.
+
+Web application to realize the calculations of a calculator using the pure programming language JavaScript.
 
 ## Installation
-Para utilizar a aplicação, basta executar o arquivo index.html em um browser.
+
+To use the application, just run the index.html file in your Browser.
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)

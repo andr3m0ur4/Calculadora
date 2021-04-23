@@ -1,4 +1,4 @@
-function calcular (tipo, valor) {
+function calcular(tipo, valor) {
 
     if (tipo === 'acao') {
 
@@ -31,6 +31,7 @@ function calcular (tipo, valor) {
                     }
 
                 } else {
+                    document.getElementById('resultado').value = Number.parseFloat(document.getElementById('resultado').value)
                     document.getElementById('resultado').value += valor
                 }
 
@@ -48,4 +49,16 @@ function calcular (tipo, valor) {
     } else if (tipo === 'valor') {
         document.getElementById('resultado').value += valor
     }
+}
+
+window.onload = function() {
+    document.querySelectorAll('button').forEach(function(button) {
+        var parametros = button.getAttribute('calcular').split(';')
+        var tipo = parametros[0]
+        var valor = tipo === 'valor' ? Number.parseInt(parametros[1]) : parametros[1]
+        
+        button.onclick = function() {
+            calcular(tipo, valor)
+        }
+    })
 }

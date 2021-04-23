@@ -38,3 +38,7 @@ body {
     border: solid 1px #000;
     box-shadow: 1px 1px 1px #000;
 }
+
+.calculadora .container .row:last-of-type {
+    margin-top: -60px;
+}
